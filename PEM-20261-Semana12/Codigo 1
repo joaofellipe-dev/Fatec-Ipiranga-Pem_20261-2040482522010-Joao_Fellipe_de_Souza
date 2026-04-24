@@ -9,7 +9,7 @@ typedef struct Pasta {
     char nome[50];
     float tamanho_proprio;
     float tamanho_total;
-    struct Pasta* subpastas[10]; // Ponteiros em vez de índices
+    struct Pasta* subpastas[10]; 
     int qtd_sub;
 } Pasta;
 
@@ -21,7 +21,6 @@ float processarHierarquiaPonteiros(Pasta* p, int nivel_atual, int limite_profund
     p->tamanho_total = p->tamanho_proprio;
 
     for (int i = 0; i < p->qtd_sub; i++) {
-        // Acesso direto via ponteiro
         p->tamanho_total += processarHierarquiaPonteiros(p->subpastas[i], nivel_atual + 1, limite_profundidade);
     }
 
